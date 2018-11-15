@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -56,10 +56,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.4">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
@@ -96,7 +96,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -126,7 +126,16 @@
 
   <title>张晓升</title>
   
-
+  <!-- 百度统计代码 -->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3885f6b010cc3813e9ba39e08abf6ef7";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -277,6 +286,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/27/express-mock/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/27/express-mock/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -303,19 +322,17 @@
       
         
           
-            <p>前端开发过程中，当后台接口还未完成，知道接口数据格式时，可以使用 node 模拟后台接口。这样开发时不用在 js 里直接写假数据等，只需要修改后台接口的 baseUrl 就可以在自己模拟的接口和后台给的接口之间切换。</p>
-<p>新建一个空白文件夹，输入如下命令新建项目。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/mock/npminit.png" alt="init"><br>&nbsp;<strong>entry point</strong> 是入口文件,如果不使用默认的 <strong>index.js</strong>,可以自定义名字。</p>
-<p>安装 Express<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express --save</span><br></pre></td></tr></table></figure></p>
-<p>新建一个文件 app.js, app.get 用来响应 get 请求(app 是一个 Express 实例),如果是 post 请求，使用 app.post,put、delete等同理。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>,(req,res) =&gt; res.send(<span class="string">'hello word!'</span>));</span><br><span class="line">app.get(<span class="string">'/wel'</span>,(req,res) =&gt; res.send(<span class="string">'welcome'</span>));</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>,() =&gt; <span class="built_in">console</span>.log(<span class="string">'listening on port 3000'</span>));</span><br></pre></td></tr></table></figure></p>
-<p>在 package.json 中 scripts 下添加 “start”: “node app.js”，输入命令 npm run start，在浏览器中输入地址 localhost:3000,就可以看到 <strong>hello word!</strong> 的输出了,输入地址 /wel，就可以看到返回 welcome。</p>
-<p><img src="/images/mock/welcome.png" alt="welcome"></p>
-<p>可以把请求的结果放在独立的 json 文件中，此时需要引用 node 的文件读取模块 <strong>fs</strong>,返回读取出来的 json 数据。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">app.post(<span class="string">'/p'</span>,(req,res) =&gt; &#123;</span><br><span class="line">    fs.readFile(<span class="string">'json/1.json'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(err)&#123;</span><br><span class="line">            res.send(err);</span><br><span class="line">        &#125;</span><br><span class="line">        res.json(<span class="built_in">JSON</span>.parse(data.toString()));</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/mock/mockdata-json.png" alt="json"></p>
-<p>Express 可以根据状态码设置回复，比如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.use(function(req,res,next)&#123;</span><br><span class="line">    res.status(404).send(&apos;oops...&apos;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/mock/mockdata-404.png" alt="json"></p>
-
-          
+          前端开发过程中，当后台接口还未完成，知道接口数据格式时，可以使用 node 模拟后台接口。这样开发时不用在 js 里直接写假数据等，只需要修改后台接口的 baseUrl 就可以在自己模拟的接口和后台给的接口之间切换。
+新建一个空白文件夹，输入如下命令新建项目。1npm init
+&nbsp;entr
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/27/express-mock/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -407,6 +424,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/08/css-position/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/08/css-position/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -433,12 +460,16 @@
       
         
           
-            <p>&emsp;&emsp;CSS 定位包括可视化格式模型和定位模型。</p>
-<h2 id="可视化格式模型"><a href="#可视化格式模型" class="headerlink" title="可视化格式模型"></a>可视化格式模型</h2><p>&emsp;&emsp;CSS 中元素分为块级元素和行内元素，通过 display 属性设置。<br>&emsp;&emsp;块级元素显示一块内容，前后自动添加换行，即“块框”，块级元素可以设置 width、height、margin、padding，display 属性的值是 block。<br>&emsp;&emsp;行内元素内容显示在行中，可以设置内边距、水平外边距，但不影响行内框的高度，不能设置 width、height、垂直外边距，display 属性的值 inline。<br>&emsp;&emsp;可以把行内元素的 display 属性设置为 inline-block，这样就能显式地设置 width、height、垂直外边距。还可以设置元素的 display 为 none，这样元素不再显示，不占用文档中的空间。</p>
-<h2 id="定位模型"><a href="#定位模型" class="headerlink" title="定位模型"></a>定位模型</h2><p>&emsp;&emsp;定位模型分为普通流，绝对定位，浮动定位。</p>
-<p><img src="/images/css_position.png" alt="定位模型"></p>
-
-          
+          &emsp;&emsp;CSS 定位包括可视化格式模型和定位模型。
+可视化格式模型&emsp;&emsp;CSS 中元素分为块级元素和行内元素，通过 display 属性设置。&emsp;&emsp;块级元素显示一块内容，前后自动添加换行，即“块框”，块级元素可以设置 width、height、ma
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/08/css-position/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -530,6 +561,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/10/router-refresh/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/11/10/router-refresh/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -556,19 +597,15 @@
       
         
           
-            <p>当使用vue-router的<strong>history</strong>模式时，url像这样<code>http://www.site.com/login/reset</code>,看起来比较美观。但是刷新或者直接输入这个url会出现404错误，原因是前后端未分离时，输入这个url后，浏览器到后台寻找相应的方法，然后会返回一个路径，浏览器根据这个路径重定向到对应的页面。当前后端分离时，后台并没有这个方法，所以就会返回404错误。</p>
-<p>解决方法是服务器把所有404错误的url重定向到index.html，交给前端处理。</p>
-<p>如果使用c#开发，有以下两个处理方法：</p>
-<ul>
-<li><p>在<global class="asax "></global>cs中添加以下代码</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">Application_Error</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> error = Server.GetLastError();</span><br><span class="line">    <span class="keyword">var</span> code = (error <span class="keyword">is</span> HttpException) ? (error <span class="keyword">as</span> HttpException).GetHttpCode() : <span class="number">500</span>;</span><br><span class="line">    <span class="keyword">if</span> (code == <span class="number">404</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Server.TransferRequest(<span class="string">"~/index.html"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置IIS服务器<br>安装UrlRewrite,添加过滤规则</p>
-</li>
-</ul>
-<p>如果使用Apache、nginx、node，请点击vue-router<a href="https://router.vuejs.org/zh-cn/essentials/history-mode.html" target="_blank" rel="noopener">官网</a>.</p>
-
-          
+          当使用vue-router的history模式时，url像这样http://www.site.com/login/reset,看起来比较美观。但是刷新或者直接输入这个url会出现404错误，原因是前后端未分离时，输入这个url后，浏览器到后台寻找相应的方法，然后会返回一个路径，浏览器根据这个路径重定
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/10/router-refresh/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -676,6 +713,22 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhxsh" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/1811598611" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
 
           
           
@@ -720,7 +773,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
@@ -859,6 +912,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'fIagAhCwKwcgsTuWLGjX7L0E-gzGzoHsz',
+        appKey: '2kkL59RMm3FKADY3AnpUSUmU',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
