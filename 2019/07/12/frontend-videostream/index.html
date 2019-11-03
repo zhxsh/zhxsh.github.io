@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content=",," />
+  <meta name="keywords" content="视频流,rmtp," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="商君书愚者暗于成事,知者见于未萌。民不可与虑始而可与乐成。 春醪集 梁遇春  我现在一出家门，就尽我的眼力望着来往街上远远近近的女子，看看里面有没有你。在我偶的眼里天下女子可分两大类，一类是‘你’，一是‘非你’，一切的女子，不管村俏老少，对于我都失掉了意义，她们唯一的特征就在于‘不是你’这一点，此外我看不出她们有什么分别。">
-<meta name="keywords" content="生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文学">
-<meta property="og:url" content="http://www.zhangxiaosheng.top/abandon/literature.html">
+<meta name="description" content="视频流有 rtmp、rtsp、 http 等格式，前端播放最方便的是 rtmp，rtmp 播放的方法如下 引入 video.js，5.x 版本(7.x 版本可能有问题) 12&amp;lt;script src=&quot;http://vjs.zencdn.net/5.5.3/video.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;link href=&quot;http://vjs.zencdn.net/5.5.">
+<meta name="keywords" content="视频流,rmtp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端播放视频流">
+<meta property="og:url" content="http://www.zhangxiaosheng.top/2019/07/12/frontend-videostream/index.html">
 <meta property="og:site_name" content="张晓升">
-<meta property="og:description" content="商君书愚者暗于成事,知者见于未萌。民不可与虑始而可与乐成。 春醪集 梁遇春  我现在一出家门，就尽我的眼力望着来往街上远远近近的女子，看看里面有没有你。在我偶的眼里天下女子可分两大类，一类是‘你’，一是‘非你’，一切的女子，不管村俏老少，对于我都失掉了意义，她们唯一的特征就在于‘不是你’这一点，此外我看不出她们有什么分别。">
+<meta property="og:description" content="视频流有 rtmp、rtsp、 http 等格式，前端播放最方便的是 rtmp，rtmp 播放的方法如下 引入 video.js，5.x 版本(7.x 版本可能有问题) 12&amp;lt;script src=&quot;http://vjs.zencdn.net/5.5.3/video.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;link href=&quot;http://vjs.zencdn.net/5.5.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-28T02:07:51.165Z">
+<meta property="og:updated_time" content="2019-11-03T16:10:02.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文学">
-<meta name="twitter:description" content="商君书愚者暗于成事,知者见于未萌。民不可与虑始而可与乐成。 春醪集 梁遇春  我现在一出家门，就尽我的眼力望着来往街上远远近近的女子，看看里面有没有你。在我偶的眼里天下女子可分两大类，一类是‘你’，一是‘非你’，一切的女子，不管村俏老少，对于我都失掉了意义，她们唯一的特征就在于‘不是你’这一点，此外我看不出她们有什么分别。">
+<meta name="twitter:title" content="前端播放视频流">
+<meta name="twitter:description" content="视频流有 rtmp、rtsp、 http 等格式，前端播放最方便的是 rtmp，rtmp 播放的方法如下 引入 video.js，5.x 版本(7.x 版本可能有问题) 12&amp;lt;script src=&quot;http://vjs.zencdn.net/5.5.3/video.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;link href=&quot;http://vjs.zencdn.net/5.5.">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.zhangxiaosheng.top/abandon/literature.html"/>
+  <link rel="canonical" href="http://www.zhangxiaosheng.top/2019/07/12/frontend-videostream/"/>
 
 
 
 
 
-  <title>文学 | 张晓升</title>
+  <title>前端播放视频流 | 张晓升</title>
   
 
 
@@ -230,38 +230,168 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.zhangxiaosheng.top/2019/07/12/frontend-videostream/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张晓升">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张晓升">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">文学</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h3 id="商君书"><a href="#商君书" class="headerlink" title="商君书"></a>商君书</h3><p>愚者暗于成事,知者见于未萌。民不可与虑始而可与乐成。</p>
-<h3 id="春醪集"><a href="#春醪集" class="headerlink" title="春醪集"></a>春醪集</h3><blockquote>
-<p>梁遇春</p>
-</blockquote>
-<p>我现在一出家门，就尽我的眼力望着来往街上远远近近的女子，看看里面有没有你。在我偶的眼里天下女子可分两大类，一类是‘你’，一是‘非你’，一切的女子，不管村俏老少，对于我都失掉了意义，她们唯一的特征就在于‘不是你’这一点，此外我看不出她们有什么分别。</p>
-
+          <h1 class="post-title" itemprop="name headline">前端播放视频流</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-12T17:27:00+08:00">
+                2019-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/12/frontend-videostream/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/07/12/frontend-videostream/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>视频流有 rtmp、rtsp、 http 等格式，前端播放最方便的是 rtmp，rtmp 播放的方法如下</p>
+<p>引入 video.js，5.x 版本(7.x 版本可能有问题)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://vjs.zencdn.net/5.5.3/video.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"http://vjs.zencdn.net/5.5.3/video-js.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用 video 标签，添加样式<strong>video-js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;video preload=<span class="string">"auto"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"video-js videoWrap"</span> id=<span class="string">"myvideo"</span>&gt;</span><br><span class="line">  &lt;source src=<span class="string">"rtmp://58.200.131.2:1935/livetv/hunantv"</span> type=<span class="string">"rtmp/flv"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/video&gt;</span></span><br></pre></td></tr></table></figure>
+<p>默认播放</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">videojs.options.autoplay = <span class="literal">true</span>;</span><br><span class="line">videojs(<span class="string">"myvideo"</span>);</span><br></pre></td></tr></table></figure>
+<p>修改标签大小需在 video 标签外面加样式</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/视频流/" rel="tag"># 视频流</a>
+          
+            <a href="/tags/rmtp/" rel="tag"># rmtp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/11/webpack3-code-spliting/" rel="next" title="基于 Webpack v3 的代码分块打包">
+                <i class="fa fa-chevron-left"></i> 基于 Webpack v3 的代码分块打包
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/23/react-ssr/" rel="prev" title="搭建使用 next.js 完成 react 服务端渲染的开发环境">
+                搭建使用 next.js 完成 react 服务端渲染的开发环境 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -304,17 +434,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -385,22 +506,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#商君书"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x5546;&#x541B;&#x4E66;" class="headerlink" title="&#x5546;&#x541B;&#x4E66;"></a>&#x5546;&#x541B;&#x4E66;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#春醪集"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x6625;&#x91AA;&#x96C6;" class="headerlink" title="&#x6625;&#x91AA;&#x96C6;"></a>&#x6625;&#x91AA;&#x96C6;</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -559,9 +664,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://www.zhangxiaosheng.top/abandon/literature.html';
-          this.page.identifier = 'abandon/literature.html';
-          this.page.title = '文学';
+          this.page.url = 'http://www.zhangxiaosheng.top/2019/07/12/frontend-videostream/';
+          this.page.identifier = '2019/07/12/frontend-videostream/';
+          this.page.title = '前端播放视频流';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shawnz.disqus.com/embed.js';
